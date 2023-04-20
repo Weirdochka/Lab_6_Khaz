@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+ <html>
+    <head>
+     <meta content="text/html">
+       <title>Вариант 17 Хазиахметов Задание 3</title>
+       <link rel="stylesheet" href="/style.CSS">
+    </head>
+    <body>
+     <script>
+      class Phone
+      {
+        constructor(ptype,pos,psize,presolution,pop)
+        {
+        this.type = ptype;
+        this.os = pos;
+        this.size = psize;
+        this.resolution = presolution;
+        this.op = pop;
+        Object.defineProperty(this, 'full', 
+        {
+        get() 
+            {
+             return `${this.type} ${this.os} ${this.size} ${this.resolution} ${this.op}`;
+            },
+
+        set(value) 
+            {
+            [this.type, this.os, this.size, this.resolution, this.op] = value.split(" ");
+            }
+        });
+        };
+        info(){
+        document.write("type: ",this.type,"<br></br>");
+        document.write("operation system: ",this.os,"<br></br>");
+        document.write("screen size: ",this.size,"<br></br>");
+        document.write("screen resolution: ",this.resolution,"<br></br>");
+        document.write("op: ",this.op,"<br></br>");
+      }
+      }
+   
+        class Date extends Phone{
+        constructor(ptype, pos, psize, presolution, pop, pdate){
+        super(ptype, pos, psize, presolution, pop);
+        this.date = pdate;
+        }
+        info(){
+        super.info();
+        document.write("date: ",this.date,"<br></br>");
+        }
+        }
+      let ph =new Date("сенсорный","андройд","5.5","1242x2208","8","322");
+      ph.info();
+
+     </script>
+    </body>
+ </html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+ <html>
+    <head>
+     <meta content="text/html">
+       <title>Вариант 17 Хазиахметов Задание 2</title>
+       <link rel="stylesheet" href="/style.CSS">
+    </head>
+    <body>
+     <script>
+      function Phone(ptype,pos,psize,presolution,pop)
+      {
+        this.type=ptype;
+        this.os=pos;
+        this.size=psize;
+        this.resolution=presolution;
+        this.op=pop;
+        Object.defineProperty(this, 'full', 
+        {
+        get() 
+            {
+             return `${this.type} ${this.os} ${this.size} ${this.resolution} ${this.op}`;
+            },
+
+        set(value) 
+            {
+            [this.type, this.os, this.size, this.resolution, this.op] = value.split(" ");
+            }
+        });
+      };
+
+      //let phone = new Phone("сенсорный","андройд","5.5","1242x2208","8");
+
+      Phone.prototype.date="21.02.2003";
+      Phone.prototype.fullin= function(){
+        document.write("type: ",this.type,"<br></br>");
+        document.write("operation system: ",this.os,"<br></br>");
+        document.write("screen size: ",this.size,"<br></br>");
+        document.write("screen resolution: ",this.resolution,"<br></br>");
+        document.write("op: ",this.op,"<br></br>");
+        document.write("date: ",this.date,"<br></br>");
+      };
+      let ph = new Phone("сенсорный","андройд","5.5","1242x2208","8","98988");
+      ph.fullin();
+     </script>
+    </body>
+ </html>
